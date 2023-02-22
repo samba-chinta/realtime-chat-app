@@ -1,0 +1,42 @@
+.welcome-page__wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.page-main__container .links-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.links-container .link-btn {
+    outline: none;
+    border: none;
+    background-color: #8A2BE2;
+    border: solid 1px #8A2BE2;
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    gap: 10px;
+}
+
+.link-btn a {
+    text-decoration: none;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.links-container .link-btn:hover {
+    background-color: #FFFFFF;
+    color: #8A2BE2;
+    border: solid 1px #8A2BE2;
+}
+
+.links-container .link-btn:hover > a {
+    color: #8A2BE2;
+}

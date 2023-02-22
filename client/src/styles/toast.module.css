@@ -1,0 +1,23 @@
+.toast-wrapper {
+    width: 200px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.info {
+    background-color: #1E88E5;
+}
+
+.error {
+    background-color: #FF1744;
+}
+
+.success {
+    background-color: #43a047;
+}

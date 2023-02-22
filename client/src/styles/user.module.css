@@ -1,0 +1,22 @@
+.user-info {
+    border-top: solid 1px #FFFFFF;
+    padding: 10px 0;
+}
+
+.logout__btn {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    margin: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.logout__btn:hover {
+    background-color: #FAFAFA;
+}
