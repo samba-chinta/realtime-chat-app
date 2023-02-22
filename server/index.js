@@ -20,23 +20,28 @@ config();
 
 // configuring servers (express, http, socket, graphql respectively)
 const app = express();
+
 const httpServer = http.createServer(app);
+
 const io = new Server(httpServer, {
-    cors: {
+    cors: {                                  // To Allow CORS
         origin: "http://localhost:3000",
         methods: ["GET", "POST"],
         credentials: true,
     },
 });
+
 const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })], // attaching httpServer to ApolloServer
 });
 await apolloServer.start();
+
 // enable cors & json
 app.use(cors());
 app.use(express.json());
+
 app.use(
     "/graphql",
     cors(),
@@ -51,6 +56,7 @@ app.get("/", (req, res) => {
     res.send("Hey Hi! Welcome to GraphQl Server");
 });
 
+// on client connection
 io.on("connection", (socket) => {
     console.log(`Connected to the Socket: ${socket.id}`);
     socket.on("set-user-id", ({ msg }) => {

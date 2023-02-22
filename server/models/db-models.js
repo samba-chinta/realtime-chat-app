@@ -5,39 +5,39 @@ const specification = {
     require: true,
 }
 
-//schemas
+//schemas for user, contacts, sent_messages & received messages
 const userSchema = new Schema({
-    user_id: specification,
+    id: specification,
     email: specification,
     username: specification,
-    contacts: [{type: Schema.Types.ObjectId, ref: 'Contact'}],
-    sentMessage: [{type: Schema.Types.ObjectId, ref: 'SentMessage'}],
-    receivedMessages: [{type: Schema.Types.ObjectId, ref: 'ReceivedMessage'}]
+    contacts: [{type: Schema.Types.ObjectId, ref: 'Contact'}], // populated with Contact
+    sentMessage: [{type: Schema.Types.ObjectId, ref: 'SentMessage'}], // populated with SentMessage
+    receivedMessages: [{type: Schema.Types.ObjectId, ref: 'ReceivedMessage'}] // populated with ReceivedMessage
 })
 
 const contactSchema = new Schema({
-    contact_id: specification,
+    id: specification,
     email: specification,
     username: specification
 })
 
 const sentMessageSchema = new Schema({
-    message_id: specification,
-    sender: {type: Schema.Types.ObjectId, ref: 'User'},
-    recipient: {type: Schema.Types.ObjectId, ref: 'Contact'},
+    id: specification,
+    sender: {type: Schema.Types.ObjectId, ref: 'User'}, // populated with User
+    recipient: {type: Schema.Types.ObjectId, ref: 'Contact'}, // populated with Contact
     message: specification,
     sent_at: Date
 })
 
 const receivedMessageSchema = new Schema({
-    message_id: specification,
-    sender: {type: Schema.Types.ObjectId, ref: 'Contact'},
-    recipient:  {type: Schema.Types.ObjectId, ref: 'User'},
+    id: specification,
+    sender: {type: Schema.Types.ObjectId, ref: 'Contact'}, // populated with Contact
+    recipient:  {type: Schema.Types.ObjectId, ref: 'User'}, // populated with User
     message: specification,
     received_at: Date
 })
 
-// models
+// models User, Contact, SentMessage, ReceivedMessage
 export const User = model('User', userSchema);
 export const Contact = model('Contact', contactSchema);
 export const SentMessage = model('SentMessage', sentMessageSchema);
